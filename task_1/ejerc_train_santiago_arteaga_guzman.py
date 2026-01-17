@@ -40,9 +40,8 @@ print("\n---Ejercicio 3: Sistema de Alertas---")
 
 
 def verificar_estado_robot(bateria, distancia_obstaculo):
-
-"""Verifica el estado del robot y genera alertas"""
-
+    """Verifica el estado del robot y genera alertas"""
+    
     if bateria < 20:
         print("ALERTA CRÍTICA: Batería baja, regresar a estación")
     elif bateria < 50:
@@ -92,7 +91,7 @@ def distancia_total_trayectoria(puntos):
     for i in range(len(puntos)-1):
         distancia += calcular_distancia(puntos[i], puntos[i + 1])
 
-        return distancia
+    return distancia
 
 # Calcular
 trayectoria = [(0, 0), (3, 4), (6, 4), (6, 8)]
@@ -121,8 +120,7 @@ sensores = {
 print("Estado de sensores:")
 
 for nombre, datos in sensores.items():
-
-print(f" {nombre.upper()}: {datos}")
+    print(f" {nombre.upper()}: {datos}")
 
 # Acceder a datos específicos
 print(f"\nDistancia del LIDAR: {sensores['lidar']['distancia']} m")
@@ -228,7 +226,7 @@ class RobotConBrazo(RobotMovil):
     def agarrar(self, objeto):
         """Agarra un objeto"""
         if self.objeto_agarrado is None:
-        self.objeto_agarrado = objeto
+            self.objeto_agarrado = objeto
             print(f"{self.nombre} agarró: {objeto}")
         else:
             print(f"{self.nombre} ya tiene un objeto: {self.objeto_agarrado}")
@@ -286,10 +284,9 @@ class SensorDistancia(Sensor):
         return self.ultima_lectura
 
 class RobotAutonomo(RobotMovil):
-
     """Robot autónomo con sensores"""
 
-def __init__(self, nombre, x=0, y=0):
+    def __init__(self, nombre, x=0, y=0):
         super().__init__(nombre, x, y)
         self.sensores = []
 
